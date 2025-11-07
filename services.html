@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | My Demo Website</title>
+  <title>Our Services | My Demo Website</title>
+
+  <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,58 +13,155 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-N56PD6SS');
   </script>
+  <!-- End Google Tag Manager -->
+
   <style>
     body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; color:#333; }
     header, footer { background:#004b8d; color:#fff; padding:20px 0; text-align:center; }
     nav ul { display:flex; justify-content:center; gap:25px; list-style:none; margin-top:10px; }
     nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
     nav a:hover { color:#ffca28; }
-    main { padding:60px 20px; max-width:1000px; margin:auto; }
-    h2 { color:#03c776; }
-    .service-card { background:#fff; padding:20px; margin-bottom:30px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    button { background:#004b8d; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; }
-    button:hover { background:#003366; }
+    main { padding:60px 20px; max-width:1100px; margin:auto; }
+    section { margin-bottom:80px; }
+    h1, h2 { color:#004b8d; }
+    p { line-height:1.7; }
+    .services-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:30px;
+      margin-top:40px;
+    }
+    .service-card {
+      background:#fff;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 4px 14px rgba(0,0,0,0.15);
+    }
+    .service-card img {
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+    .service-card-content {
+      padding:20px;
+    }
+    .service-card button {
+      background:#004b8d;
+      color:#fff;
+      border:none;
+      padding:10px 20px;
+      border-radius:5px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+    .service-card button:hover { background:#003366; }
   </style>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N56PD6SS"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <header>
     <h1>Our Services</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'Home'})">Home</a></li>
+        <li><a href="about.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'About'})">About</a></li>
+        <li><a href="services.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'Services'})">Services</a></li>
+        <li><a href="contact.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'Contact'})">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <div class="service-card">
-      <h2>Web Development</h2>
-      <p>We create responsive, SEO-friendly, and performance-optimized websites that align with your brand and goals.</p>
-      <button onclick="dataLayer.push({'event':'service_click','service':'Web Development'})">Learn More</button>
-    </div>
+    <section>
+      <h2>What We Offer</h2>
+      <p>Explore our range of professional web and analytics services. Scroll down to see more — these images are perfect for testing <strong>Element Visibility triggers</strong> in Google Tag Manager (GTM).</p>
 
-    <div class="service-card">
-      <h2>Analytics Setup</h2>
-      <p>We help businesses set up Google Analytics, GA4, and Tag Manager to capture meaningful insights from user data.</p>
-      <button onclick="dataLayer.push({'event':'service_click','service':'Analytics Setup'})">Get Started</button>
-    </div>
+      <div class="services-grid">
 
-    <div class="service-card">
-      <h2>Digital Marketing</h2>
-      <p>Boost your online presence with data-driven marketing strategies that deliver measurable results.</p>
-      <button onclick="dataLayer.push({'event':'service_click','service':'Digital Marketing'})">Contact Us</button>
-    </div>
+        <!-- Web Development -->
+        <div class="service-card" id="service-webdev">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Web Development">
+          <div class="service-card-content">
+            <h3>Web Development</h3>
+            <p>We build fast, secure, and mobile-friendly websites using modern frameworks and SEO best practices.</p>
+            <button onclick="dataLayer.push({'event':'service_click','service':'Web Development'})">Learn More</button>
+          </div>
+        </div>
+
+        <!-- UI/UX Design -->
+        <div class="service-card" id="service-design">
+          <img src="https://images.unsplash.com/photo-1581093588401-22d7cbe2a3cd?auto=format&fit=crop&w=800&q=80" alt="UI/UX Design">
+          <div class="service-card-content">
+            <h3>UI/UX Design</h3>
+            <p>Our design team creates intuitive and visually stunning user experiences that keep customers engaged.</p>
+            <button onclick="dataLayer.push({'event':'service_click','service':'UI/UX Design'})">Learn More</button>
+          </div>
+        </div>
+
+        <!-- Data Analytics -->
+        <div class="service-card" id="service-analytics">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Data Analytics">
+          <div class="service-card-content">
+            <h3>Data Analytics</h3>
+            <p>We turn your raw data into actionable insights using GA4, GTM, and BigQuery dashboards.</p>
+            <button onclick="dataLayer.push({'event':'service_click','service':'Data Analytics'})">Learn More</button>
+          </div>
+        </div>
+
+        <!-- SEO Optimization -->
+        <div class="service-card" id="service-seo">
+          <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80" alt="SEO Optimization">
+          <div class="service-card-content">
+            <h3>SEO Optimization</h3>
+            <p>Boost your online visibility with our expert SEO strategies designed for measurable growth.</p>
+            <button onclick="dataLayer.push({'event':'service_click','service':'SEO Optimization'})">Learn More</button>
+          </div>
+        </div>
+
+        <!-- Marketing Automation -->
+        <div class="service-card" id="service-marketing">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" alt="Marketing Automation">
+          <div class="service-card-content">
+            <h3>Marketing Automation</h3>
+            <p>Automate and personalize your marketing campaigns using powerful analytics-driven workflows.</p>
+            <button onclick="dataLayer.push({'event':'service_click','service':'Marketing Automation'})">Learn More</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 My Demo Website. All rights reserved.</p>
   </footer>
+
+  <!-- Optional: Element visibility simulation for local testing -->
+  <script>
+    // Simulate visibility tracking for demonstration
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          dataLayer.push({
+            'event': 'element_visible',
+            'element_id': entry.target.id,
+            'visibility': 'visible'
+          });
+        }
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
