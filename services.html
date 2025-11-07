@@ -25,6 +25,8 @@
     section { margin-bottom:80px; }
     h1, h2 { color:#004b8d; }
     p { line-height:1.7; }
+
+    /* Service cards */
     .services-grid {
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
@@ -60,6 +62,31 @@
       margin-top:10px;
     }
     .service-card button:hover { background:#003366; }
+
+    /* Final image and text layout */
+    .visibility-section {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      overflow:hidden;
+      padding:30px;
+      gap:20px;
+    }
+    .visibility-section img {
+      width:100%;
+      max-width:500px;
+      border-radius:10px;
+      flex:1 1 45%;
+    }
+    .visibility-text {
+      flex:1 1 45%;
+    }
+    .visibility-text h3 { color:#004b8d; margin-bottom:15px; }
+    .visibility-text p { margin-bottom:10px; }
   </style>
 </head>
 
@@ -87,8 +114,6 @@
       <p>Explore our range of professional web and analytics services. Scroll down to see more — these images are perfect for testing <strong>Element Visibility triggers</strong> in Google Tag Manager (GTM).</p>
 
       <div class="services-grid">
-
-        <!-- Web Development -->
         <div class="service-card" id="service-webdev">
           <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Web Development">
           <div class="service-card-content">
@@ -98,7 +123,6 @@
           </div>
         </div>
 
-        <!-- UI/UX Design -->
         <div class="service-card" id="service-design">
           <img src="https://images.unsplash.com/photo-1581093588401-22d7cbe2a3cd?auto=format&fit=crop&w=800&q=80" alt="UI/UX Design">
           <div class="service-card-content">
@@ -108,7 +132,6 @@
           </div>
         </div>
 
-        <!-- Data Analytics -->
         <div class="service-card" id="service-analytics">
           <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Data Analytics">
           <div class="service-card-content">
@@ -118,7 +141,6 @@
           </div>
         </div>
 
-        <!-- SEO Optimization -->
         <div class="service-card" id="service-seo">
           <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80" alt="SEO Optimization">
           <div class="service-card-content">
@@ -128,7 +150,6 @@
           </div>
         </div>
 
-        <!-- Marketing Automation -->
         <div class="service-card" id="service-marketing">
           <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" alt="Marketing Automation">
           <div class="service-card-content">
@@ -137,7 +158,20 @@
             <button onclick="dataLayer.push({'event':'service_click','service':'Marketing Automation'})">Learn More</button>
           </div>
         </div>
+      </div>
+    </section>
 
+    <!-- Visibility Test Section -->
+    <section id="visibility-section">
+      <h2>Visual Analytics in Action</h2>
+      <div class="visibility-section" id="visibility-image-block">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" alt="Analytics Dashboard Image">
+        <div class="visibility-text">
+          <h3>Test GTM Element Visibility Tracking</h3>
+          <p>This section is designed to help you test <strong>Element Visibility triggers</strong> in Google Tag Manager.</p>
+          <p>As you scroll and this image becomes visible, GTM should automatically fire an event (either through the built-in Element Visibility trigger or the Intersection Observer in this demo).</p>
+          <p>You can view these events in <strong>GTM Preview Mode</strong> and <strong>GA4 DebugView</strong> to confirm that your setup is working correctly.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -146,9 +180,8 @@
     <p>&copy; 2025 My Demo Website. All rights reserved.</p>
   </footer>
 
-  <!-- Optional: Element visibility simulation for local testing -->
+  <!-- Visibility tracking simulation (for local testing) -->
   <script>
-    // Simulate visibility tracking for demonstration
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -161,7 +194,7 @@
       });
     }, { threshold: 0.6 });
 
-    document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
+    document.querySelectorAll('.service-card, #visibility-image-block').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
