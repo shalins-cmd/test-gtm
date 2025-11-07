@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | My Demo Website</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N56PD6SS');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; color:#333; }
+    header, footer { background:#004b8d; color:#fff; padding:20px 0; text-align:center; }
+    nav ul { display:flex; justify-content:center; gap:25px; list-style:none; margin-top:10px; }
+    nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#ffca28; }
+    main { padding:60px 20px; max-width:1000px; margin:auto; }
+    section { margin-bottom:60px; }
+    h1, h2 { color:#03c776; }
+    button { background:#004b8d; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; }
+    button:hover { background:#003366; }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N56PD6SS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <h1>My Demo Website</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'Home'})">Home</a></li>
+        <li><a href="about.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'About'})">About</a></li>
+        <li><a href="services.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'Services'})">Services</a></li>
+        <li><a href="contact.html" onclick="dataLayer.push({'event':'nav_click','nav_item':'Contact'})">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to My Demo Website</h2>
+      <p>This website demonstrates a clean HTML structure with integrated Google Tag Manager and event tracking. It includes multiple pages with consistent design and professional layout.</p>
+      <p>Scroll down to explore how the content flows naturally across sections, showcasing a modern and minimal web theme.</p>
+    </section>
+
+    <section>
+      <h2>Our Mission</h2>
+      <p>We aim to create easy-to-understand, professional web templates for learning and testing analytics integrations. Whether you’re building a marketing site or testing GA4 events, this serves as your starting point.</p>
+      <button onclick="dataLayer.push({'event':'button_click','button_name':'Learn More'})">Learn More</button>
+    </section>
+
+    <section>
+      <h2>Why Choose Us</h2>
+      <ul>
+        <li>Simple and elegant HTML/CSS structure</li>
+        <li>Fully Tag Manager ready</li>
+        <li>Responsive and clean design</li>
+        <li>Easy to expand and customize</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Demo Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>

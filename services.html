@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | My Demo Website</title>
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N56PD6SS');
+  </script>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; color:#333; }
+    header, footer { background:#004b8d; color:#fff; padding:20px 0; text-align:center; }
+    nav ul { display:flex; justify-content:center; gap:25px; list-style:none; margin-top:10px; }
+    nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#ffca28; }
+    main { padding:60px 20px; max-width:1000px; margin:auto; }
+    h2 { color:#03c776; }
+    .service-card { background:#fff; padding:20px; margin-bottom:30px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    button { background:#004b8d; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; }
+    button:hover { background:#003366; }
+  </style>
+</head>
+
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N56PD6SS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header>
+    <h1>Our Services</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="service-card">
+      <h2>Web Development</h2>
+      <p>We create responsive, SEO-friendly, and performance-optimized websites that align with your brand and goals.</p>
+      <button onclick="dataLayer.push({'event':'service_click','service':'Web Development'})">Learn More</button>
+    </div>
+
+    <div class="service-card">
+      <h2>Analytics Setup</h2>
+      <p>We help businesses set up Google Analytics, GA4, and Tag Manager to capture meaningful insights from user data.</p>
+      <button onclick="dataLayer.push({'event':'service_click','service':'Analytics Setup'})">Get Started</button>
+    </div>
+
+    <div class="service-card">
+      <h2>Digital Marketing</h2>
+      <p>Boost your online presence with data-driven marketing strategies that deliver measurable results.</p>
+      <button onclick="dataLayer.push({'event':'service_click','service':'Digital Marketing'})">Contact Us</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Demo Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
