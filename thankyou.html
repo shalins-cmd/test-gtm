@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | My Demo Website</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N56PD6SS');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f7fa; margin:0; text-align:center; padding-top:100px; }
+    h1 { color:#004b8d; }
+    p { font-size:1.2rem; margin-top:20px; color:#333; }
+    a { color:#004b8d; text-decoration:none; font-weight:bold; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N56PD6SS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <h1>Thank You!</h1>
+  <p>Your message has been sent successfully. We’ll be in touch soon.</p>
+  <p><a href="index.html">Return to Home</a></p>
+
+  <script>
+    // Push a GTM event for thank-you page view
+    dataLayer.push({
+      'event': 'thankyou_page_view',
+      'page_type': 'conversion',
+      'form_name': 'Contact Form'
+    });
+  </script>
+</body>
+</html>
