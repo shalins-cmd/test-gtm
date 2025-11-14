@@ -1,216 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Services | My Demo Website</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Demo Website</title>
 
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-N56PD6SS');
-  </script>
-  <!-- End Google Tag Manager -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+        }
 
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; color:#333; }
-    header, footer { background:#004b8d; color:#fff; padding:20px 0; text-align:center; }
-    nav ul { display:flex; justify-content:center; gap:25px; list-style:none; margin-top:10px; }
-    nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
-    nav a:hover { color:#ffca28; }
+        /* ---------------- POPUP ---------------- */
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
 
-    main { padding:60px 20px; max-width:1000px; margin:auto; }
-    .services-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-    .service-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card img { width: 100%; height: 200px; object-fit: cover; }
-    .service-card-content { padding: 20px; }
-    .service-card-content h3 { color: #004b8d; margin-bottom: 10px; }
-    .service-card-content p { font-size: 0.95rem; margin-bottom: 15px; }
-    button {
-      background: #004b8d; color: #fff; border: none;
-      padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s;
-    }
-    button:hover { background: #003366; }
+        #popup-content {
+            background: #fff;
+            padding: 25px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            animation: pop 0.3s ease-out;
+        }
 
-    /* Popup Styles */
-    .popup-overlay {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center; align-items: center;
-      z-index: 1000;
-    }
-    .popup-box {
-      background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
-      animation: fadeIn 0.4s ease-in-out;
-    }
-    .popup-box h2 {
-      color: #004b8d;
-      margin-bottom: 10px;
-    }
-    .popup-box p { color: #555; margin-bottom: 20px; }
-    .close-btn {
-      background: #004b8d; color: #fff; border: none;
-      padding: 10px 20px; border-radius: 5px; cursor: pointer;
-    }
-    .close-btn:hover { background: #003366; }
+        @keyframes pop {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+        #popup button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #popup button:hover {
+            background-color: #0056b3;
+        }
+
+        /* ---------------- HERO SECTION ---------------- */
+        header {
+            background: #003f87;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero {
+            padding: 50px 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        /* ---------------- FEATURES ---------------- */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .service-card {
+            width: 320px;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .service-card h3 {
+            margin: 15px 0 10px;
+        }
+
+        /* ---------------- CENTERED NEW CARD SECTION ---------------- */
+        .center-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .center-card {
+            background: white;
+            width: 95%;
+            max-width: 700px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.20);
+        }
+
+        .center-card h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .center-card p {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        /* ---------------- FOOTER ---------------- */
+        footer {
+            background: #003f87;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N56PD6SS"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <header>
-    <h1>Our Services</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <div class="services-container">
-      <div class="service-card" id="web-dev">
-        <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=800&q=80" alt="Web Development">
-        <div class="service-card-content">
-          <h3>Web Development</h3>
-          <p>Build modern, responsive, and scalable websites with our expert development team.</p>
-          <button class="learn-more" data-service="Web Development">Learn More</button>
+    <!-- POPUP -->
+    <div id="popup">
+        <div id="popup-content">
+            <h2>Welcome!</h2>
+            <p>This is your website popup. Click below to close.</p>
+            <button onclick="closePopup()">Close</button>
         </div>
-      </div>
-
-      <div class="service-card" id="seo">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="SEO Optimization">
-        <div class="service-card-content">
-          <h3>SEO Optimization</h3>
-          <p>Boost your online visibility and reach more customers with data-driven SEO strategies.</p>
-          <button class="learn-more" data-service="SEO Optimization">Learn More</button>
-        </div>
-      </div>
-
-      <div class="service-card" id="uiux">
-        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee9817?auto=format&fit=crop&w=800&q=80" alt="UI/UX Design">
-        <div class="service-card-content">
-          <h3>UI/UX Design</h3>
-          <p>Design intuitive and visually appealing interfaces that enhance user experience and engagement.</p>
-          <button class="learn-more" data-service="UI/UX Design">Learn More</button>
-        </div>
-      </div>
-
-      <div class="service-card" id="digital-marketing">
-        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80" alt="Digital Marketing">
-        <div class="service-card-content">
-          <h3>Digital Marketing</h3>
-          <p>Drive leads and sales through tailored online marketing campaigns and social media strategies.</p>
-          <button class="learn-more" data-service="Digital Marketing">Learn More</button>
-        </div>
-      </div>
     </div>
 
-    <!-- NEW IMAGE + TEXT CARD -->
-    <section style="display:flex; justify-content:center; margin-top:60px;">
+    <!-- HEADER -->
+    <header>
+        <h1>My Demo Website</h1>
+    </header>
 
-      <div style="
-        background:#fff;
-        width:90%;
-        max-width:900px;
-        border-radius:12px;
-        box-shadow:0 4px 20px rgba(0,0,0,0.1);
-        overflow:hidden;
-        display:flex;
-        flex-wrap:wrap;
-      ">
-        
-        <!-- Left Image -->
-        <div style="flex:1 1 350px;">
-          <img class="img"
-               src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80"
-               alt="Service Insights"
-               style="width:100%; height:100%; object-fit:cover;">
-        </div>
-
-        <!-- Right Text -->
-        <div style="flex:1 1 350px; padding:30px;">
-          <h2 style="color:#004b8d; margin-bottom:15px;">Why Choose Our Services?</h2>
-
-          <p style="color:#444; font-size:1rem; line-height:1.6;">
-            Our expert team provides high-quality digital solutions using modern tools,
-            advanced technology, and proven strategies. Whether you need web development,
-            SEO, UI/UX, or digital marketing, we deliver efficient, scalable, and reliable
-            results tailored to your business goals.
-          </p>
-        </div>
-
-      </div>
-
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Grow Your Business With Digital Solutions</h1>
+        <p>We provide web development, SEO, digital marketing, and other solutions that help your business thrive.</p>
     </section>
 
-  </main>
+    <!-- SERVICES -->
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+        <div class="service-card">
+            <img src="https://via.placeholder.com/300x200" alt="Digital Marketing">
+            <h3>Digital Marketing</h3>
+            <p>Grow sales using tailored marketing campaigns.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://via.placeholder.com/300x200" alt="SEO Optimization">
+            <h3>SEO Optimization</h3>
+            <p>Improve rankings and increase traffic organically.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://via.placeholder.com/300x200" alt="Web Development">
+            <h3>Web Development</h3>
+            <p>Create modern, fast, and responsive websites.</p>
+        </div>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 My Demo Website. All rights reserved.</p>
-  </footer>
+    <!-- CENTER CARD (the card you wanted centered) -->
+    <div class="center-wrapper">
+        <div class="center-card">
+            <h2>Why Choose Our Services?</h2>
+            <p>
+                We provide high-quality digital services backed by expert teams, modern tools, 
+                and industry-leading strategies. Whether you're looking for web development, SEO, 
+                or marketing, our solutions are tailored to help your business grow efficiently.
+            </p>
+        </div>
+    </div>
 
-  <script>
-    const buttons = document.querySelectorAll(".learn-more");
-    const popup = document.getElementById("popupOverlay");
-    const popupTitle = document.getElementById("popupTitle");
-    const closePopup = document.getElementById("closePopup");
+    <!-- FOOTER -->
+    <footer>
+        © 2025 My Demo Website. All rights reserved.
+    </footer>
 
-    // When user clicks "Learn More"
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        const serviceName = button.getAttribute("data-service");
-
-        // dataLayer.push({
-        //   'event': 'service_popup_open',
-        //   'service_name': serviceName
-        // });
-
-        popupTitle.textContent = serviceName;
-        popup.style.display = "flex";
-      });
-    });
-
-    closePopup.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) popup.style.display = "none";
-    });
-  </script>
-
+    <!-- POPUP SCRIPT -->
+    <script>
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
 </body>
 </html>
