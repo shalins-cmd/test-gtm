@@ -52,7 +52,7 @@
       background: rgba(0,0,0,0.6);
       display: none;
       justify-content: center; align-items: center;
-      z-index: 1000;
+      z-index: 2000;
     }
     .popup-box {
       background: #fff;
@@ -182,27 +182,31 @@
     <p>&copy; 2025 My Demo Website. All rights reserved.</p>
   </footer>
 
+  <!-- POPUP HTML -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-box">
+      <h2 id="popupTitle">Service Title</h2>
+      <p>We will share more details about this service.</p>
+      <button class="close-btn" id="closePopup">Close</button>
+    </div>
+  </div>
+
   <script>
     const buttons = document.querySelectorAll(".learn-more");
     const popup = document.getElementById("popupOverlay");
     const popupTitle = document.getElementById("popupTitle");
     const closePopup = document.getElementById("closePopup");
 
-    // When user clicks "Learn More"
+    // Show popup on Learn More click
     buttons.forEach(button => {
       button.addEventListener("click", () => {
         const serviceName = button.getAttribute("data-service");
-
-        // dataLayer.push({
-        //   'event': 'service_popup_open',
-        //   'service_name': serviceName
-        // });
-
         popupTitle.textContent = serviceName;
         popup.style.display = "flex";
       });
     });
 
+    // Close popup
     closePopup.addEventListener("click", () => {
       popup.style.display = "none";
     });
