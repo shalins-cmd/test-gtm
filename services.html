@@ -3,201 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Services | My Demo Website</title>
-
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-N56PD6SS');
-  </script>
-  <!-- End Google Tag Manager -->
+  <title>My Demo Website</title>
 
   <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; color:#333; }
-    header, footer { background:#004b8d; color:#fff; padding:20px 0; text-align:center; }
-    nav ul { display:flex; justify-content:center; gap:25px; list-style:none; margin-top:10px; }
-    nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
-    nav a:hover { color:#ffca28; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; }
 
-    main { padding:60px 20px; max-width:1000px; margin:auto; }
+    header { background: #003f87; color: white; padding: 20px; text-align: center; }
+
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 25px; padding: 0; margin-top: 15px; }
+    nav a { color:white; text-decoration:none; font-weight:bold; }
+    nav a:hover { color:#ffd23f; }
+
+    .hero { padding: 60px 20px; text-align: center; background: white; }
+    .hero h1 { font-size: 2.3rem; }
+    .hero p { max-width: 650px; margin: auto; color: #444; }
+
+    /* SERVICES */
+    .section-title { text-align: center; font-size: 1.8rem; margin-top: 40px; }
+
     .services-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 25px;
+      padding: 20px;
     }
+
     .service-card {
+      width: 320px;
       background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       overflow: hidden;
-      transition: transform 0.3s ease;
+      transition: 0.3s ease;
     }
     .service-card:hover { transform: translateY(-5px); }
-    .service-card img { width: 100%; height: 200px; object-fit: cover; }
-    .service-card-content { padding: 20px; }
-    .service-card-content h3 { color: #004b8d; margin-bottom: 10px; }
-    .service-card-content p { font-size: 0.95rem; margin-bottom: 15px; }
-    button {
-      background: #004b8d; color: #fff; border: none;
-      padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s;
-    }
-    button:hover { background: #003366; }
 
-    /* Popup Styles */
+    .service-card img { width: 100%; height: 200px; object-fit: cover; }
+
+    .service-card-content { padding: 20px; }
+    button {
+      padding: 10px 20px;
+      background: #003f87;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover { background: #002e63; }
+
+    /* CENTERED CARD */
+    .center-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+    .center-card {
+      background: white;
+      width: 95%;
+      max-width: 900px;
+      padding: 30px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    /* POPUP */
     .popup-overlay {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.6);
       display: none;
-      justify-content: center; align-items: center;
-      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
+
     .popup-box {
       background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      text-align: center;
+      padding: 35px;
+      border-radius: 12px;
       max-width: 400px;
       width: 90%;
-      animation: fadeIn 0.4s ease-in-out;
+      text-align: center;
+      animation: fadeIn 0.3s;
     }
-    .popup-box h2 {
-      color: #004b8d;
-      margin-bottom: 10px;
-    }
-    .popup-box p { color: #555; margin-bottom: 20px; }
-    .close-btn {
-      background: #004b8d; color: #fff; border: none;
-      padding: 10px 20px; border-radius: 5px; cursor: pointer;
-    }
-    .close-btn:hover { background: #003366; }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    .close-btn {
+      background: #003f87;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    .close-btn:hover { background: #002e63; }
+
+    footer {
+      background: #003f87;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 50px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N56PD6SS"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <h1>Our Services</h1>
+    <h1>My Demo Website</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <div class="services-container">
-      <div class="service-card" id="web-dev">
-        <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=800&q=80" alt="Web Development">
-        <div class="service-card-content">
-          <h3>Web Development</h3>
-          <p>Build modern, responsive, and scalable websites with our expert development team.</p>
-          <button class="learn-more" data-service="Web Development">Learn More</button>
-        </div>
-      </div>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Grow Your Business With Digital Solutions</h1>
+    <p>We provide web development, SEO, digital marketing, and other solutions that help your business thrive.</p>
+  </section>
 
-      <div class="service-card" id="seo">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="SEO Optimization">
-        <div class="service-card-content">
-          <h3>SEO Optimization</h3>
-          <p>Boost your online visibility and reach more customers with data-driven SEO strategies.</p>
-          <button class="learn-more" data-service="SEO Optimization">Learn More</button>
-        </div>
-      </div>
+  <!-- SERVICES -->
+  <h2 class="section-title">Our Services</h2>
 
-      <div class="service-card" id="uiux">
-        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee9817?auto=format&fit=crop&w=800&q=80" alt="UI/UX Design">
-        <div class="service-card-content">
-          <h3>UI/UX Design</h3>
-          <p>Design intuitive and visually appealing interfaces that enhance user experience and engagement.</p>
-          <button class="learn-more" data-service="UI/UX Design">Learn More</button>
-        </div>
-      </div>
-
-      <div class="service-card" id="digital-marketing">
-        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80" alt="Digital Marketing">
-        <div class="service-card-content">
-          <h3>Digital Marketing</h3>
-          <p>Drive leads and sales through tailored online marketing campaigns and social media strategies.</p>
-          <button class="learn-more" data-service="Digital Marketing">Learn More</button>
-        </div>
+  <div class="services-container">
+    
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=800&q=80">
+      <div class="service-card-content">
+        <h3>Web Development</h3>
+        <p>Modern and responsive websites.</p>
+        <button class="learn-more" data-service="Web Development">Learn More</button>
       </div>
     </div>
 
-    <!-- NEW IMAGE + TEXT CARD -->
-    <section style="display:flex; justify-content:center; margin-top:60px;">
-
-      <div style="
-        background:#fff;
-        width:90%;
-        max-width:900px;
-        border-radius:12px;
-        box-shadow:0 4px 20px rgba(0,0,0,0.1);
-        overflow:hidden;
-        display:flex;
-        flex-wrap:wrap;
-      ">
-        
-        <!-- Left Image -->
-        <div style="flex:1 1 350px;">
-          <img class="img"
-               src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80"
-               alt="Service Insights"
-               style="width:100%; height:100%; object-fit:cover;">
-        </div>
-
-        <!-- Right Text -->
-        <div style="flex:1 1 350px; padding:30px;">
-          <h2 style="color:#004b8d; margin-bottom:15px;">Why Choose Our Services?</h2>
-
-          <p style="color:#444; font-size:1rem; line-height:1.6;">
-            Our expert team provides high-quality digital solutions using modern tools,
-            advanced technology, and proven strategies. Whether you need web development,
-            SEO, UI/UX, or digital marketing, we deliver efficient, scalable, and reliable
-            results tailored to your business goals.
-          </p>
-        </div>
-
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80">
+      <div class="service-card-content">
+        <h3>SEO Optimization</h3>
+        <p>Improve search ranking and visibility.</p>
+        <button class="learn-more" data-service="SEO Optimization">Learn More</button>
       </div>
+    </div>
 
-    </section>
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee9817?auto=format&fit=crop&w=800&q=80">
+      <div class="service-card-content">
+        <h3>UI/UX Design</h3>
+        <p>Beautiful and user-friendly designs.</p>
+        <button class="learn-more" data-service="UI/UX Design">Learn More</button>
+      </div>
+    </div>
 
-  </main>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 My Demo Website. All rights reserved.</p>
-  </footer>
+  <!-- CENTERED CARD -->
+  <div class="center-wrapper">
+    <div class="center-card">
+      <h2>Why Choose Our Services?</h2>
+      <p>
+        We provide high-quality digital services backed by expert teams, modern tools,
+        and industry-leading strategies. Whether you're looking for web development, SEO,
+        or marketing, our solutions help your business grow efficiently.
+      </p>
+    </div>
+  </div>
 
+  <!-- POPUP -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-box">
+      <h2 id="popupTitle">Service Title</h2>
+      <p>Thank you for your interest! We’ll help you with more details soon.</p>
+      <button class="close-btn" id="closePopup">Close</button>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
   <script>
-    const buttons = document.querySelectorAll(".learn-more");
     const popup = document.getElementById("popupOverlay");
     const popupTitle = document.getElementById("popupTitle");
     const closePopup = document.getElementById("closePopup");
 
-    // When user clicks "Learn More"
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        const serviceName = button.getAttribute("data-service");
+    const buttons = document.querySelectorAll(".learn-more");
 
-        // dataLayer.push({
-        //   'event': 'service_popup_open',
-        //   'service_name': serviceName
-        // });
-
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const serviceName = btn.getAttribute("data-service");
         popupTitle.textContent = serviceName;
         popup.style.display = "flex";
       });
@@ -211,6 +215,10 @@
       if (e.target === popup) popup.style.display = "none";
     });
   </script>
+
+  <footer>
+    © 2025 My Demo Website. All rights reserved.
+  </footer>
 
 </body>
 </html>
